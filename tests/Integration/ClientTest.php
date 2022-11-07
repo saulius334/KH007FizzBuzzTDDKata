@@ -16,10 +16,6 @@ class ClientTest extends TestCase
     {
         $this->client = new Client();
     }
-    public function testLoopGoesToInputedNumber(): void
-    {
-        $this->client->listMeFizzBuzz(100);
-    }
     public function test(): void
     {
         assertEquals(true, true);

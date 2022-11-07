@@ -6,6 +6,7 @@ namespace KH007\Services;
 
 class ConvertFizzBuzz
 {
+    protected NumberChecker $checker;
     public function __construct()
     {
         $this->checker = new NumberChecker();
@@ -14,12 +15,17 @@ class ConvertFizzBuzz
     {
         if ($number % 15 === 0) {
             return 'FizzBuzz';
-        } elseif ($number % 3 === 0 || $this->checker->check($number) === 3) {
+        } elseif ($number % 3 === 0) {
             return 'Fizz';
-        } elseif ($number % 5 === 0 || $this->checker->check($number) === 5) {
+        } elseif ($number % 5 === 0) {
             return 'Buzz';
         } else {
             return $number;
         }
+    }
+    public function convertStage2(int $number): int|string
+    {
+           $result1 = $this->convert($number);
+           return $result1 . $this->checker->check($number);
     }
 }

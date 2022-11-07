@@ -16,4 +16,12 @@ class Client
         }
         return $i;
     }
+    public function listMeFizzBuzz2(int $number): int
+    {
+        $converter = new ConvertFizzBuzz();
+        for ($i = 1; $i <= $number; $i++) {
+            print_r($converter->convertStage2($i) . "\n");
+        }
+        return $i;
+    }
 }

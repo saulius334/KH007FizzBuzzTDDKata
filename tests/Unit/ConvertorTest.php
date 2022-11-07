@@ -42,7 +42,7 @@ class ConvertorTest extends TestCase
     }
     public function testConverterStage2DoesChangeNumbersMultiplyBy3and5(): void
     {
-        assertEquals('FizzBuzzBuzz', $this->converter->convertStage2(15));
+        assertEquals('BuzzFizzBuzz', $this->converter->convertStage2(15));
         assertEquals('FizzBuzz', $this->converter->convertStage2(53));
         assertEquals('FizzBuzzBuzz', $this->converter->convertStage2(35));
     }

@@ -25,7 +25,15 @@ class ConvertFizzBuzz
     }
     public function convertStage2(int $number): int|string
     {
+        // $result1 = $this->checker->check($number);
+        // $result2 = $this->convert($number);
+        // return $result1 . $result2;
            $result1 = $this->convert($number);
-           return $result1 . $this->checker->check($number);
+           $result2 = $this->checker->check($number);
+        if (is_int($result1)) {
+            return $result2;
+        } else {
+            return $result2 . $result1;
+        }
     }
 }

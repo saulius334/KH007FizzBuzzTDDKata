@@ -40,6 +40,24 @@ class ConvertorTest extends TestCase
         assertEquals('FizzBuzz', $this->converter->convert(30));
         assertEquals('FizzBuzz', $this->converter->convert(60));
     }
+    //stage2
+    public function testConverterStage2ReturnsEmptyStringOnNormalNumbers(): void
+    {
+        assertEquals('', $this->converter->convertStage2(1));
+        assertEquals('', $this->converter->convertStage2(2));
+        assertEquals('', $this->converter->convertStage2(4));
+    }
+    public function testConverterStage2DoesChangeNumbersMultiplyBy3(): void
+    {
+        assertEquals('FizzFizz', $this->converter->convertStage2(3));
+        assertEquals('Fizz', $this->converter->convertStage2(9));
+        assertEquals('FizzFizz', $this->converter->convertStage2(63));
+    }
+    public function testConverterStage2DoesChangeNumbersMultiplyBy5(): void
+    {
+        assertEquals('BuzzBuzz', $this->converter->convertStage2(5));
+        assertEquals('BuzzBuzz', $this->converter->convertStage2(95));
+    }
     public function testConverterStage2DoesChangeNumbersMultiplyBy3and5(): void
     {
         assertEquals('BuzzFizzBuzz', $this->converter->convertStage2(15));

@@ -15,13 +15,13 @@ class Client
     }
     public function listMeFizzBuzz(int $number): void
     {
-        for ($i = 0; $i <= $number; $i++) {
+        for ($i = 1; $i <= $number; $i++) {
             print_r($this->converter->convert($i) . "\n");
         }
     }
     public function listMeFizzBuzz2(int $number): void
     {
-        for ($i = 0; $i <= $number; $i++) {
+        for ($i = 1; $i <= $number; $i++) {
             print_r($this->converter->convertStage2($i) . "\n");
         }
     }

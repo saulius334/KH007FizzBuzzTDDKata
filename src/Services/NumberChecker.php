@@ -6,7 +6,7 @@ namespace KH007\Services;
 
 class NumberChecker
 {
-    public function check(int $number): string
+    public function check(int $number): string|int
     {
         $num = str_split(strval($number));
         if (in_array(3, $num) && in_array(5, $num)) {
@@ -16,7 +16,7 @@ class NumberChecker
         } elseif (in_array(5, $num)) {
             return 'Buzz';
         } else {
-            return '';
+            return $number;
         }
     }
 }

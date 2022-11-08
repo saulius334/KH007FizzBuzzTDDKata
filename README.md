@@ -1,7 +1,7 @@
 # KH007FizzBuzzTDDKata
 
 ## Original
-This is a practice kata for TDD,check the original link for more: <a>https://codingdojo.org/kata/FizzBuzz/</a>
+A practice kata for TDD,check the original link for more: <a>https://codingdojo.org/kata/FizzBuzz/</a>
 
 ## Installation
 

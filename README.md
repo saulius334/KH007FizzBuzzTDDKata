@@ -18,13 +18,17 @@ Install all the dependencies using composer
 composer install
 ```
 
-## Running
+## Running the app
 
 To start the project open up terminal and type in
 
 ```shell script
 php run.php
-```
+```  
+Open run.php to see commented method, uncomment it and run it to see stage2 changes.  
+```shell script
+// $client->listMeFizzBuzz2(100);
+```  
 
 
 ## Testing

@@ -34,7 +34,7 @@ class ConvertFizzBuzz
         } elseif (!is_int($result2) && is_int($result1)) {
             return $result2;
         } else {
-            return $result1 . $result2;
+            return $result2 . $result1;
         }
     }
 }

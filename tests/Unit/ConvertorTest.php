@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests;
 
+use Generator;
 use PHPUnit\Framework\TestCase;
 use KH007\Services\ConvertFizzBuzz;
 
@@ -12,56 +13,20 @@ use function PHPUnit\Framework\assertEquals;
 class ConvertorTest extends TestCase
 {
     protected ConvertFizzBuzz $converter;
-    protected function setUp(): void
+    /**
+    * @dataProvider dataProvider
+    */
+    public function testConverter(int $input, int|string $expected): void
     {
         $this->converter = new ConvertFizzBuzz();
+        assertEquals($expected, $this->converter->convert($input));
     }
-    public function testConverterDosentChangeNormalNumbers(): void
+
+    public function dataProvider(): Generator
     {
-        assertEquals(1, $this->converter->convert(1));
-        assertEquals(2, $this->converter->convert(2));
-        assertEquals(4, $this->converter->convert(4));
-    }
-    public function testConverterDoesChangeNumbersMultiplyBy3(): void
-    {
-        assertEquals('Fizz', $this->converter->convert(3));
-        assertEquals('Fizz', $this->converter->convert(9));
-        assertEquals('Fizz', $this->converter->convert(99));
-    }
-    public function testConverterDoesChangeNumbersMultiplyBy5(): void
-    {
-        assertEquals('Buzz', $this->converter->convert(5));
-        assertEquals('Buzz', $this->converter->convert(25));
-        assertEquals('Buzz', $this->converter->convert(100));
-    }
-    public function testConverterDoesChangeNumbersMultiplyBy3and5(): void
-    {
-        assertEquals('FizzBuzz', $this->converter->convert(15));
-        assertEquals('FizzBuzz', $this->converter->convert(30));
-        assertEquals('FizzBuzz', $this->converter->convert(60));
-    }
-    //stage2
-    public function testConverterStage2ReturnsEmptyStringOnNormalNumbers(): void
-    {
-        assertEquals('', $this->converter->convertStage2(1));
-        assertEquals('', $this->converter->convertStage2(2));
-        assertEquals('', $this->converter->convertStage2(4));
-    }
-    public function testConverterStage2DoesChangeNumbersMultiplyBy3(): void
-    {
-        assertEquals('FizzFizz', $this->converter->convertStage2(3));
-        assertEquals('Fizz', $this->converter->convertStage2(9));
-        assertEquals('FizzFizz', $this->converter->convertStage2(63));
-    }
-    public function testConverterStage2DoesChangeNumbersMultiplyBy5(): void
-    {
-        assertEquals('BuzzBuzz', $this->converter->convertStage2(5));
-        assertEquals('BuzzBuzz', $this->converter->convertStage2(95));
-    }
-    public function testConverterStage2DoesChangeNumbersMultiplyBy3and5(): void
-    {
-        assertEquals('BuzzFizzBuzz', $this->converter->convertStage2(15));
-        assertEquals('FizzBuzz', $this->converter->convertStage2(53));
-        assertEquals('FizzBuzzBuzz', $this->converter->convertStage2(35));
+        yield 'ConverterDosentChangeNormalNumbers' => [1, 1];
+        yield 'ConverterDoesChangeNumbersMultiplyBy3' => [3, 'Fizz'];
+        yield 'ConverterDoesChangeNumbersMultiplyBy5' => [5, 'Buzz'];
+        yield 'ConverterDoesChangeNumbersMultiplyBy3and5' => [15, 'FizzBuzz'];
     }
 }
